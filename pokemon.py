@@ -1,17 +1,20 @@
+# pokemon.py
 class Pokemon:
-    def __init__(self, nombre, nivel):
-        self.__nombre = nombre
-        self.__nivel = nivel
+    def __init__(self, nombre, tipo):
+        self._nombre = nombre
+        self._tipo = tipo
 
     def get_nombre(self):
-        return self.__nombre
+        return self._nombre
 
-    def get_nivel(self):
-        return self.__nivel
+    def set_nombre(self, nombre):
+        self._nombre = nombre
 
-    def set_nivel(self, nivel):
-        if nivel >= 0:
-            self.__nivel = nivel
+    def get_tipo(self):
+        return self._tipo
 
-    def mostrar_info(self):
-        return f"Nombre: {self.get_nombre()}, Nivel: {self.get_nivel()}"
+    def set_tipo(self, tipo):
+        self._tipo = tipo
+
+    def __str__(self):
+        return f"{self.get_nombre()} es un Pokémon de tipo {self.get_tipo()}"

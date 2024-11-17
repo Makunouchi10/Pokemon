@@ -1,29 +1,27 @@
+# main.py
+from fuego import PokemonFuego
 from agua import PokemonAgua
-from planta import PokemonPlanta
-from charizard import Charizard
+from pokemonM import PokemonConHabilidad
+
 
 def main():
-    squirtle = PokemonAgua("Squirtle", 10)
-    bulbasaur = PokemonPlanta("Bulbasaur", 10)
-    charizard = Charizard("Charizard",50)
+    # Crear instancias de las clases hijo directas
+    charizard = PokemonFuego("Charizard", 36, 1200)  # Clase hijo de PokemonTipo, y aqui solo le pones al final el tipo que quieres, y haces eso en todos los demas
+    squirtle = PokemonAgua("Squirtle", 5, 30)  # Clase hijo de PokemonTipo
+    zapdos_con_habilidad = PokemonConHabilidad("Zapdos", 50, 5000, "Electrocañón")  # Clase hijo de PokemonElectrico
 
-    pokemons = [squirtle, bulbasaur, charizard]
+    # Mostrar información y ataques
+    print(charizard)
+    print(charizard.atacar())
+    print()
 
-    for pokemon in pokemons:
-        print(pokemon.mostrar_info())
-        print(pokemon.ataque_elemental())
+    print(squirtle)
+    print(squirtle.atacar())
+    print()
 
-        if isinstance(pokemon, PokemonAgua):
-            print(pokemon.hidrobomba())
+    print(zapdos_con_habilidad)
+    print(zapdos_con_habilidad.atacar())
 
-        if isinstance(pokemon, PokemonPlanta):
-            print(pokemon.rayo_solar())
-
-        if isinstance(pokemon, Charizard):
-            print(pokemon.ataque_aereo())
-            print(f"Tipo secundario: {pokemon.get_tipo_secundario()}")
-
-        print("---")
 
 if __name__ == "__main__":
     main()

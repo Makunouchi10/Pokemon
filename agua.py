@@ -1,11 +1,19 @@
-from elemental import PokemonElemental
+# pokemon_agua.py
+from nivel import PokemonNivel
 
-class PokemonAgua(PokemonElemental):
-    def __init__(self, nombre, nivel):
-        super().__init__(nombre, nivel, "Agua")
+class PokemonAgua(PokemonNivel):
+    def __init__(self, nombre, nivel, profundidad):
+        super().__init__(nombre, "Agua", nivel)
+        self._profundidad = profundidad
 
-    def hidrobomba(self):
-        return f"{self.get_nombre()} usa Hidrobomba"
+    def get_profundidad(self):
+        return self._profundidad
 
-    def mostrar_info(self):
-        return f"{super().mostrar_info()}, Elemento: {self.get_elemento()}"
+    def set_profundidad(self, profundidad):
+        self._profundidad = profundidad
+
+    def atacar(self):
+        return f"{self.get_nombre()} usa un ataque acuático a {self.get_profundidad()} metros de profundidad!"
+
+    def __str__(self):
+        return f"{self.get_nombre()} (Agua) - Nivel {self.get_nivel()} - Profundidad: {self.get_profundidad()}m"

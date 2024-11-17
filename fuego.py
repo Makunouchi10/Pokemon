@@ -1,18 +1,19 @@
-from elemental import PokemonElemental
-from mega import MegaEvolucion
+# pokemon_fuego.py
+from nivel import PokemonNivel
 
-class PokemonFuego(PokemonElemental, MegaEvolucion):
-    def __init__(self, nombre, nivel,):
-        PokemonElemental.__init__(self, nombre, nivel, "Fuego")
-        MegaEvolucion.__init__(self)
+class PokemonFuego(PokemonNivel):
+    def __init__(self, nombre, nivel, temperatura): #tipo="fuego", se le pone eso si lo quieres cambiar, que le estas poniendo uno por defecto para despues cambiarlo
+        super().__init__(nombre, "Fuego", nivel) #El tipo de pokemon se esta poniendo asi para decir que es de valor fijo
+        self._temperatura = temperatura
 
-    def lanzallamas(self):
-        return f"{self.get_nombre()} usa Lanzallamas"
+    def get_temperatura(self):
+        return self._temperatura
 
-    def ataque_mega(self):
-        if self.get_mega_evolucionado():
-            return f"{self.get_nombre()} usa un poderoso ataque Mega de fuego"
-        return f"{self.get_nombre()} no puede usar ataques Mega sin Mega Evolucionar"
+    def set_temperatura(self, temperatura):
+        self._temperatura = temperatura
 
-    def mostrar_info(self):
-        return f"{super().mostrar_info()}, Estado: {self.estado_mega()}"
+    def atacar(self):
+        return f"{self.get_nombre()} usa un ataque de fuego a {self.get_temperatura()}°C!"
+
+    def __str__(self):
+        return f"{self.get_nombre()} (Fuego) - Nivel {self.get_nivel()} - Temperatura: {self.get_temperatura()}°C" #Y aqui le quitas fuego y lo mandas a llamar, {self.get_tipo()}
