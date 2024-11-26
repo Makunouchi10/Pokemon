@@ -6,7 +6,7 @@ from pokemonM import PokemonConHabilidad
 
 def main():
     # Crear instancias de las clases hijo directas
-    charizard = PokemonFuego("Charizard", 36, 1200)  # Clase hijo de PokemonTipo, y aqui solo le pones al final el tipo que quieres, y haces eso en todos los demas
+    charizard = PokemonFuego("Charizard", 36, 1200)  # Clase hijo de PokemonTipo
     squirtle = PokemonAgua("Squirtle", 5, 30)  # Clase hijo de PokemonTipo
     zapdos_con_habilidad = PokemonConHabilidad("Zapdos", 50, 5000, "Electrocañón")  # Clase hijo de PokemonElectrico
 
