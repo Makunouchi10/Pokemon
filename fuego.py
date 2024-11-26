@@ -16,4 +16,4 @@ class PokemonFuego(PokemonNivel):
         return f"{self.get_nombre()} usa un ataque de fuego a {self.get_temperatura()}°C!"
 
     def __str__(self):
-        return f"{self.get_nombre()} (Fuego) - Nivel {self.get_nivel()} - Temperatura: {self.get_temperatura()}°C"
+        return f"{self.get_nombre()} ({self.get_tipo()}) - Nivel {self.get_nivel()} - Temperatura: {self.get_temperatura()}°C"

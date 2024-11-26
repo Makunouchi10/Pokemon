@@ -22,6 +22,5 @@ def main():
     print(zapdos_con_habilidad)
     print(zapdos_con_habilidad.atacar())
 
-
 if __name__ == "__main__":
     main()
